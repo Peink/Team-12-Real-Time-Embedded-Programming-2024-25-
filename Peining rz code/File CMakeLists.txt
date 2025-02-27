@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(RaspberryFaceLock)
+set(CMAKE_CXX_STANDARD 17)
+find_package(OpenCV REQUIRED)
+add_executable(RaspberryFaceLock src/main.cpp src/face_recognition.cpp src/database.cpp src/web_server.cpp src/gpio_control.cpp)
+target_include_directories(RaspberryFaceLock PRIVATE include)
+target_link_libraries(RaspberryFaceLock ${OpenCV_LIBS} sqlite3 wiringPi)
